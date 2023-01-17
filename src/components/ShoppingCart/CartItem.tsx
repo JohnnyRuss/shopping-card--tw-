@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { CartItemType } from "../../interface/index";
 
 interface Item {
@@ -7,7 +7,7 @@ interface Item {
   handleRemoveFromCart: (id: number) => void;
 }
 
-const CartItem: FC<Item> = ({
+const CartItem: React.FC<Item> = ({
   item,
   handleAddToCart,
   handleRemoveFromCart,
@@ -17,8 +17,12 @@ const CartItem: FC<Item> = ({
       <div className="flex flex-col gap-2 w-3/4">
         <h4 className="font-medium">{item.title}</h4>
         <p className="flex justify-between mt-2">
-          <span>Price: </span><span className="font-bold">${item.price}</span>
-          <span>Total: </span><span className="font-bold">${(item.amount * item.price).toFixed(2)}</span>
+          <span>Price: </span>
+          <span className="font-bold">${item.price}</span>
+          <span>Total: </span>
+          <span className="font-bold">
+            ${(item.amount * item.price).toFixed(2)}
+          </span>
         </p>
         <div className="flex justify-between items-center mt-2">
           <button
